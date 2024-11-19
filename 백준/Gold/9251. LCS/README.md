@@ -28,3 +28,5 @@
 
  <p>첫째 줄에 입력으로 주어진 두 문자열의 LCS의 길이를 출력한다.</p>
 
+
+ ![image](https://github.com/user-attachments/assets/d40014ce-86f7-43c7-8eb5-46bda2654ca0)
