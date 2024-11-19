@@ -9,7 +9,7 @@ static int LCS(int x, int y) {
 	if(dp[x][y] == null) {
 		dp[x][y] = 0;
  
-		// str1의 x번째 문자와 str2의 y번째 문자가 같은지 검사
+		// str1의 x번째 문자와 str2의 y번째 문자가 같은지 검사: Btrck 방식
 		if(str1[x] == str2[y]) {
 			dp[x][y] = LCS(x - 1, y - 1) + 1;
 		}
