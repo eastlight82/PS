@@ -4,6 +4,8 @@ import java.util.*;
 public class Main {
     static StringBuilder[] graph;
     static int n, m;
+    static boolean[][][] vis; //0: xbroke, 1: broke
+
     static int[][] dXY= {{0,1},{0,-1},{1,0},{-1,0}};
     static int minDist= Integer.MAX_VALUE;
 
@@ -24,6 +26,7 @@ public class Main {
         StringTokenizer st= new StringTokenizer(br.readLine());
         n= Integer.valueOf(st.nextToken()); m= Integer.valueOf(st.nextToken());
         graph= new StringBuilder[n];
+        vis= new boolean[n][m][2];
 
         for (int i = 0; i < n; i++){
             String brs= br.readLine();
@@ -35,7 +38,6 @@ public class Main {
 
     static void bfs(){
         Queue<Coordinate> q= new LinkedList<>();
-        boolean[][][] vis= new boolean[n][m][2]; //0: xbroke, 1: broke
         q.offer(new Coordinate(0,0, 1, false));
 
         while (!q.isEmpty()){
