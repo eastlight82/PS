@@ -47,14 +47,7 @@ public class Main {
         int nxtY= cur.y+dy[i]; int nxtX= cur.x+dx[i]; int nxtT= cur.time+1;
 
         if (nxtY>=0 && nxtY<8 && nxtX>=0 && nxtX<8) {
-          if (nxtY-cur.time<0) {
-            q.offer(new Node(nxtY,nxtX,nxtT));
-          }
-          else if (nxtY-nxtT<0) {
-            if (graph[nxtY-cur.time].charAt(nxtX)=='.')
-              q.offer(new Node(nxtY,nxtX,nxtT));
-          }
-          else if (graph[nxtY-nxtT].charAt(nxtX)=='.' && graph[nxtY-cur.time].charAt(nxtX)=='.') {
+          if ((nxtY-cur.time<0 || graph[nxtY-cur.time].charAt(nxtX)=='.') && (nxtY-nxtT<0 || graph[nxtY-nxtT].charAt(nxtX)=='.')) {
             q.offer(new Node(nxtY,nxtX,nxtT));
           }
         }
