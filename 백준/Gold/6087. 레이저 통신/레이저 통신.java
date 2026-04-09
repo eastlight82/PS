@@ -7,10 +7,15 @@ public class Main {
   //재방문이 더 cost적을수도
   static int[][][] dist;
   static int[] dx= {0,0,-1,1}; static int[] dy= {-1,1,0,0};
-  static class Node {
+  static class Node implements Comparable<Node> {
     int y, x, cnt, route;
     Node(int y, int x, int cnt, int route){
       this.y=y; this.x=x; this.cnt=cnt; this.route=route;
+    }
+      
+    @Override
+    public int compareTo(Node o) {
+      return Integer.compare(this.cnt,o.cnt);
     }
   }
 
@@ -47,7 +52,7 @@ public class Main {
   }
 
   static void bfs(int y, int x) {
-    Queue<Node> q= new ArrayDeque<>();
+    PriorityQueue<Node> q= new PriorityQueue<>();
     q.offer(new Node(y,x,-1,-1)); 
     for (int i = 0; i < 4; i++) {
       dist[y][x][i]=-1;
